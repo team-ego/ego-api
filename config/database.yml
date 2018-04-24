@@ -1,0 +1,28 @@
+default: &default
+  adapter: postgresql
+  username: team-ego
+  password: egoegoegoe5
+  port: 5432
+  encoding: utf8
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  # RailsサーバとPostgreSQLサーバが同じ場合
+  host: localhost
+
+development:
+  <<: *default
+  database: myapp_development
+  username: team-ego
+  password: egoegoegoe5
+  host: localhost
+  schema_search_path: myapp,sharedapp,public
+  min_messages: notice
+
+test:
+  <<: *default
+  database: myapp_test
+
+production:
+  <<: *default
+  database: myapp_production
+  username: [username]
+  password: <%= ENV['MYAPP_DATABASE_PASSWORD'] %>
