@@ -13,4 +13,7 @@
 !/log/.keep
 !/tmp/.keep
 
+#newly added!
+/.env
+
 .byebug_history
